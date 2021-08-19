@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/todayMenu"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/today" />
+
+    <item
+        android:id="@+id/weekMenu"
+        android:icon="@drawable/ic_week"
+        android:title="@string/week" />
+
+    <item
+        android:id="@+id/shareMenu"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share" />
+</menu>
