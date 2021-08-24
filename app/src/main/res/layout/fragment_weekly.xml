@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:id="@+id/week_frag"
     android:layout_height="match_parent"
-    tools:context=".WeeklyFragment">
+    tools:context=".fragment.WeeklyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
