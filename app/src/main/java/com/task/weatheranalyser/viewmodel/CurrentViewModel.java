@@ -2,6 +2,7 @@ package com.task.weatheranalyser.viewmodel;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -24,6 +25,14 @@ public class CurrentViewModel extends ViewModel {
         errorLiveData = new MutableLiveData<>();
     }
 
+    public MutableLiveData<CurrentWeather> getLiveData() {
+        return liveData;
+    }
+
+    public MutableLiveData<String> getErrorLiveData() {
+        return errorLiveData;
+    }
+
     public void call() {
         API api = new RetrofitInstance().getInstance().create(API.class);
         Call<CurrentWeather> call = api.currentWeather("417e156b1b7a484d933185027212408",
@@ -31,8 +40,8 @@ public class CurrentViewModel extends ViewModel {
 
         call.enqueue(new Callback<CurrentWeather>() {
             @Override
-            public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
-                if (response != null) {
+            public void onResponse(@NonNull Call<CurrentWeather> call, @NonNull Response<CurrentWeather> response) {
+                if (response.body() != null) {
                     CurrentWeather s = response.body();
                     liveData.postValue(s);
                     Log.i(TAG, "onResponse: " + response.body().getCurrent().getCondition().getText());
@@ -40,7 +49,7 @@ public class CurrentViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<CurrentWeather> call, Throwable t) {
+            public void onFailure(@NonNull Call<CurrentWeather> call, @NonNull Throwable t) {
                 Log.e(TAG, "onFailure: " + t.getMessage());
                 errorLiveData.postValue(t.getMessage());
             }
