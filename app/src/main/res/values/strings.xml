@@ -9,10 +9,13 @@
     <string name="new_delhi">Venkatanarasimharajuvaripeta</string>
     <string name="type">Partly Cloudy</string>
     <string name="temp">12</string>
+    <string name="temp_weekly">32&#xb0;/26&#xb0;</string>
     <string name="sign">℃</string>
     <string name="temp_img">Temp Img</string>
     <string name="feel_like">Feel Like</string>
     <string name="humidity">Humidity</string>
     <string name="wind">Wind</string>
     <string name="uv">UV Index</string>
+    <string name="option_menu">option menu</string>
+    <string name="search_menu">Search</string>
 </resources>
