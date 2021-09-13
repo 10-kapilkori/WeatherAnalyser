@@ -89,8 +89,7 @@
                 android:layout_marginBottom="30dp"
                 android:text="@string/temp"
                 android:textColor="@color/white"
-                android:textSize="65sp"
-                android:textStyle="bold" />
+                android:textSize="65sp" />
 
             <TextView
                 android:layout_width="wrap_content"

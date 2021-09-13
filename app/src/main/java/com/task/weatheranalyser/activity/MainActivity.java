@@ -35,14 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame, new PresentFragment(this))
+                .replace(R.id.frame, new PresentFragment(this, this))
                 .commit();
 
         nav.setOnNavigationItemSelectedListener(item -> {
             Fragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.todayMenu:
-                    fragment = new PresentFragment(this);
+                    fragment = new PresentFragment(this, this);
                     break;
                 case R.id.weekMenu:
                     fragment = new WeeklyFragment(this);
