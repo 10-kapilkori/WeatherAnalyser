@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class Current {
     @SerializedName("temp_c")
-    String temp;
+    float temp;
     @SerializedName("condition")
     Condition condition;
     @SerializedName("wind_kph")
-    String wind;
+    float wind;
     @SerializedName("humidity")
     String humidity;
     @SerializedName("feelslike_c")
-    String feelsLike;
+    float feelsLike;
     @SerializedName("uv")
-    String uv;
+    float uv;
 
-    public String getTemp() {
+    public float getTemp() {
         return temp;
     }
 
@@ -24,7 +24,7 @@ public class Current {
         return condition;
     }
 
-    public String getWind() {
+    public float getWind() {
         return wind;
     }
 
@@ -32,11 +32,11 @@ public class Current {
         return humidity;
     }
 
-    public String getFeelsLike() {
+    public float getFeelsLike() {
         return feelsLike;
     }
 
-    public String getUv() {
+    public float getUv() {
         return uv;
     }
 }

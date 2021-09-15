@@ -36,7 +36,7 @@ public class CurrentViewModel extends ViewModel {
     public void call() {
         API api = new RetrofitInstance().getInstance().create(API.class);
         Call<CurrentWeather> call = api.currentWeather("417e156b1b7a484d933185027212408",
-                "indore");
+                "tamil nadu");
 
         call.enqueue(new Callback<CurrentWeather>() {
             @Override

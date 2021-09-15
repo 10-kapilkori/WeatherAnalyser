@@ -27,7 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/temp_img"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_frame_1"
+                android:src="@drawable/ic_frame_3"
                 android:visibility="visible" />
 
             <ImageView
@@ -64,9 +64,9 @@
                 android:layout_marginStart="38dp"
                 android:layout_marginTop="4dp"
                 android:text="@{weather.time}"
-                tools:text="@string/date"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:text="@string/date" />
 
             <TextView
                 android:id="@+id/present_type"

@@ -28,7 +28,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class PresentFragment extends Fragment {
-    //    private static final String TAG = "PresentFragment";
+    private static final String TAG = "PresentFragment";
+
     Context context;
     CurrentViewModel viewModel;
     FragmentPresentBinding binding;
@@ -55,14 +56,113 @@ public class PresentFragment extends Fragment {
         viewModel.call();
 
         viewModel.getLiveData().observe(getViewLifecycleOwner(), currentWeather -> {
+            float temp = currentWeather.getCurrent().getTemp();
+            float feelsLike = currentWeather.getCurrent().getFeelsLike();
+            float wind = currentWeather.getCurrent().getWind();
+            float uv = currentWeather.getCurrent().getUv();
+            String type = currentWeather.getCurrent().getCondition().getText();
+
             weather.setLocation(currentWeather.getLocation().getName());
-            weather.setFeelsLike(currentWeather.getCurrent().getFeelsLike() + "℃");
+            weather.setFeelsLike((int) feelsLike + "℃");
             weather.setHumidity(currentWeather.getCurrent().getHumidity() + "%");
-            weather.setTemp(currentWeather.getCurrent().getTemp());
-            weather.setUv(currentWeather.getCurrent().getUv());
-            weather.setWind(currentWeather.getCurrent().getWind() + "km/h");
+            weather.setTemp((int) temp + "");
+            weather.setUv((int) uv + "");
+            weather.setWind((int) wind + "km/h");
             weather.setText(currentWeather.getCurrent().getCondition().getText());
             weather.setTime(date + " " + s);
+
+            if (type.contains("Sunny")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_sun)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_1)
+                        .into(binding.weatherIv);
+            } else if (type.contains("Partly cloudy")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_cloudy)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("Cloudy")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_cloudy_weather)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("Overcast")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_overcast)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("Mist")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_mist)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_3)
+                        .into(binding.weatherIv);
+            } else if (type.contains("rain")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_rain)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("snow")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_snow)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_3)
+                        .into(binding.weatherIv);
+            } else if (type.contains("Blizzard")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_blizzard)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_3)
+                        .into(binding.weatherIv);
+            } else if (type.contains("sleet")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_sleet)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_3)
+                        .into(binding.weatherIv);
+            } else if (type.contains("fog")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_foggy)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_3)
+                        .into(binding.weatherIv);
+            } else if (type.contains("heavy rain")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_heavy_rain)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("light rain")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_light_rain)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            } else if (type.contains("thunder")) {
+                Glide.with(context)
+                        .load(R.drawable.ic_thunder_storm)
+                        .into(binding.weatherTypeIv);
+                Glide.with(context)
+                        .load(R.drawable.ic_frame_2)
+                        .into(binding.weatherIv);
+            }
 
             binding.setWeather(weather);
         });
